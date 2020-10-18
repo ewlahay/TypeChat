@@ -4,7 +4,7 @@ import random
 from typing import List
 
 import requests
-import uvicorn
+import aiofiles
 from fastapi import FastAPI, Depends, Request, HTTPException, Path
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
@@ -284,7 +284,3 @@ markdown = [
 
 def random_text(array) -> str:
     return array[random.randint(0, len(array) - 1)]
-
-
-if __name__ == "__main__":
-    uvicorn.run(app=app, port=8000)

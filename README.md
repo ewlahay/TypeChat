@@ -17,6 +17,10 @@ $ uvicorn main:app --reload
 # generate static project
 $ export BASE_URL=/
 $ npm run generate
+
+docker build -t typechat .
+# Create environmental variables and pass them to the container
+docker run -d --name typechatter -e API_KEY -e API_SECRET -e SECRET_KEY -p 80:80 typechat
 ```
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
