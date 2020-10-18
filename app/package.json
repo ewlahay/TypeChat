@@ -1,0 +1,28 @@
+{
+  "name": "TypeChat",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "@nuxtjs/axios": "^5.12.2",
+    "@nuxtjs/markdownit": "^1.2.10",
+    "core-js": "^3.6.5",
+    "insane": "^2.6.2",
+    "marked": "^1.2.0",
+    "nuxt": "^2.14.5",
+    "v-blur": "^1.0.4",
+    "vue-material": "^1.0.0-beta-11",
+    "vuelidate": "^0.7.5",
+    "vuex-persistedstate": "^3.1.0"
+  },
+  "devDependencies": {
+    "@nuxtjs/moment": "^1.6.1",
+    "sass": "^1.26.11",
+    "sass-loader": "^10.0.2"
+  }
+}

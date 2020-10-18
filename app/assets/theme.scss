@@ -1,0 +1,39 @@
+@import "~vue-material/dist/theme/engine"; // Import the theme engine
+
+@include md-register-theme("default", (
+  primary: md-get-palette-color(white, A700), // The primary color of your application
+
+  accent: md-get-palette-color(red, 100), // The accent or secondary color
+  background-accent: md-get-palette-color(bluegrey, 100),
+  primary-on-background: md-get-palette-color(red, A200),
+
+
+
+));
+
+$md-theme-default-primary-on-background: #00F;
+
+body {
+  background: md-get-palette-color(bluegrey, 100);
+}
+
+.md-card {
+  background-color: #fff;
+}
+
+@import "~vue-material/dist/components/MdContent/theme";
+@import "~vue-material/dist/components/MdToolbar/theme";
+@import "~vue-material/dist/theme/all"; // Apply the theme
+//@import "~vue-material/dist/components/MdCard/theme";
+.list-enter-active,
+.list-leave-active {
+  transition: all 1s;
+}
+.list-enter,
+.list-leave-to {
+  opacity: 0;
+  transform: translateY(60px);
+}
+.flip-list-move {
+  transition: transform 1s;
+}
