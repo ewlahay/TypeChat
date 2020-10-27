@@ -60,6 +60,7 @@ const typingDNAValid = function() {
         tp: "",
       },
       loading: false,
+      buttonEnabled: false,
     }),
     validations: {
       form: {
@@ -104,10 +105,10 @@ const typingDNAValid = function() {
         this.$store.commit('stopRecording');
       },
       submitPost() {
-
         this.form.username = this.$store.state.user.username;
         this.form.tp = "" + this.getTypingDNA;
         this.$v.$touch();
+        console.log("posting");
         if (!this.$v.$invalid) {
           this.post();
         } else if (this.$v.form.username.$invalid) {
@@ -118,6 +119,7 @@ const typingDNAValid = function() {
       },
       async post() {
         this.loading = true;
+        console.log("posting...");
         try {
           let url = "/api/posts";
           let post = await this.$axios.$post(url, this.form)
@@ -127,10 +129,11 @@ const typingDNAValid = function() {
           this.$bus.$emit('toast', "Post created");
           this.$store.commit('user/savePattern');
           this.$checkPatterns();
-
         } catch (error) {
+          this.loading = false;
           this.$bus.$emit('toast', "That didn't work");
           this.$handleError(error);
+          this.$store.commit('startTypingDNA', ["body", "subject"]);
         }
         this.loading = false;
       }

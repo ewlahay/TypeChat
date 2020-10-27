@@ -36,23 +36,30 @@ export default (context, inject) => {
   inject('formatDate', formatDate);
 
 
-  const handle401 = function(self) {
+  const handle401 = function(self, error) {
     authErrorCount++;
+
     if (authErrorCount > 3) {
       self.$store.commit('user/reset');
       self.$store.commit("nextResetText");
       setTimeout(() => { self.$bus.$emit('usernameReset') }, 4000);
     }
+    console.log("Handling error");
+    if (error.response.data.detail) {
+      self.$bus.$emit('toast', error.response.data.detail);
+    } else {
+      self.$bus.$emit('toast', self.$store.state.resetText);
+    }
 
-    self.$bus.$emit('toast', self.$store.state.resetText);
 
   }
   //inject('handle401', handle401);
 
   const handleError = function(error) {
+    console.log("Handling error");
     if (error.response) {
       if (error.response.status == 401) {
-        handle401(this);
+        handle401(this, error);
       }
     }
 

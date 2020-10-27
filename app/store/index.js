@@ -1,12 +1,4 @@
-function sleep(ms) {
-  var start = new Date().getTime(), expire = start + ms;
-  while (new Date().getTime() < expire) { }
-  return;
-}
 
-function waitForLoad() {
-
-}
 
 export const state = () => ({
   showCreatePost: false,
@@ -14,6 +6,7 @@ export const state = () => ({
   minQuality: 0.3,
   loadDelay: 50,
   minSavedPatterns: 3,
+  resetText: "Unable to authenticate user"
 })
 
 export const mutations = {
