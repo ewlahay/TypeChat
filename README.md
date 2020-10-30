@@ -2,7 +2,11 @@
 Is a forum built around the idea of typing based authentication. 
 If you don't have a password to forget, then you don't need an email for password resets. 
 If you don't need an email then there's no need to sign up. Just pick a username and start typing!
-## Dev Setup
+
+## Prerequisites
+* [TypingDNA](https://www.typingdna.com/)  API key
+* Python 3.6
+* Node 10 or higher
 
 ```bash
 # install dependencies
@@ -20,7 +24,9 @@ uvicorn main:app --reload
 # Build docker container
 ```
 export BROWSER_BASE_URL=/
+cd app
 npm run generate
+cd ..
 docker build -t typechat .
 # Create environmental variables and pass them to the container
 docker run -d --name NAME -e API_KEY -e API_SECRET -e SECRET_KEY -p 80:80 typechat

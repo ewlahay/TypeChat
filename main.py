@@ -237,6 +237,8 @@ def save_user(username: str, typingPattern: str) -> bool:
 
 
 def verify_user(username: str, typingPattern: str):
+    if username == "":
+        return False
     id = get_user_id(username)
     url = '%s/verify/%s' % (base_url, id)
     res = requests.post(url, data={'tp': typingPattern, 'quality': "1"},

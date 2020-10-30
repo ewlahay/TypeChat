@@ -7,7 +7,7 @@
 
 
       <div class="md-content">
-         TypeChat lets you use markup in posts! Try it out with the following examples
+         TypeChat lets you use markdown in posts! Try it out with the following examples
       </div>
       <br>
         <div class="md-content">
