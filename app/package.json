@@ -13,7 +13,7 @@
     "@nuxtjs/markdownit": "^1.2.10",
     "core-js": "^3.6.5",
     "insane": "^2.6.2",
-    "marked": "^1.2.0",
+    "marked": "^2.0.0",
     "nuxt": "^2.14.5",
     "v-blur": "^1.0.4",
     "vue-material": "^1.0.0-beta-11",
